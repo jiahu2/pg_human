@@ -252,6 +252,7 @@ async fn complete_prompt(prompt: Vec<ChatCompletionMessage>) -> Result<String> {
 #[tokio::main(flavor = "current_thread")]
 async fn give_me_a_query_to(question: &str) -> Result<()> {
     let prompt = question_prompt(question);
+    eprintln!("prompt: {:?}", prompt);
     notice!(
         "You can try this query:\n{}",
         complete_prompt(prompt).await?
